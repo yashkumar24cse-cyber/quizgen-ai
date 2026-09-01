@@ -1,0 +1,268 @@
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: #e2e8f8;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #c7c4d8;
+}
+
+/* Glassmorphism Styles */
+.glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(229, 231, 235, 0.5);
+}
+
+.glass-panel {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Float Animation */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Gradient Text styling */
+.gradient-text {
+    background: linear-gradient(135deg, #3525cd 0%, #4f46e5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Option Cards (Interactive Quiz Selection) */
+.option-card {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.option-card:active {
+    transform: scale(0.98);
+}
+.option-selected {
+    background-color: #dad7ff !important; /* on-primary-container tint */
+    color: #0f0069 !important; /* on-primary-fixed */
+    border-color: #3525cd !important; /* primary */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Timer Glow Alert */
+.timer-glow {
+    animation: pulse-shadow 2s infinite;
+}
+@keyframes pulse-shadow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(186, 26, 26, 0); }
+    50% { box-shadow: 0 0 15px 2px rgba(186, 26, 26, 0.25); }
+}
+
+/* Progress bar easing */
+.progress-bar-fill {
+    transition: width 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Confetti System */
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+    overflow: hidden;
+}
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: -10px;
+    animation: fall linear forwards;
+}
+@keyframes fall {
+    to {
+        transform: translateY(105vh) rotate(720deg);
+    }
+}
+
+/* Score Circular Progress SVG */
+.score-progress {
+    transition: stroke-dashoffset 1.5s ease-out;
+}
+
+/* Leaderboard Podium Gradients */
+.podium-1 {
+    background: linear-gradient(135deg, #FFD700 0%, #FFB800 100%);
+}
+.podium-2 {
+    background: linear-gradient(135deg, #E2E8F0 0%, #CBD5E1 100%);
+}
+.podium-3 {
+    background: linear-gradient(135deg, #FFEDD5 0%, #FED7AA 100%);
+}
+.premium-shadow {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+}
+.inner-stroke {
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Floating Input Labels */
+.floating-label-input {
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.floating-label-input > input {
+    padding-top: 1.25rem;
+    padding-bottom: 0.25rem;
+    line-height: 1.2;
+    border: 0;
+    box-shadow: none;
+}
+.floating-label-input:focus-within {
+    border-color: #3525cd;
+    box-shadow: 0 0 0 3px rgba(53, 37, 205, 0.12);
+}
+.floating-label-input > label {
+    top: 50%;
+    line-height: 1.2;
+    transform: translateY(-50%);
+    transform-origin: left top;
+    transition: top 0.18s ease, transform 0.18s ease, color 0.18s ease;
+}
+.floating-label-input:focus-within > label,
+.floating-label-input > input:not(:placeholder-shown) + label {
+    top: 0.45rem;
+    transform: translateY(0) scale(0.8);
+    color: #3525cd;
+}
+
+/* Primary Action Button */
+.btn-primary {
+    background: linear-gradient(135deg, #3525cd 0%, #4f46e5 100%);
+    color: #ffffff;
+    font-weight: 600;
+    border: none;
+    transition: opacity 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+.btn-primary:hover {
+    opacity: 0.92;
+}
+.btn-primary:active {
+    transform: scale(0.98);
+}
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Premium Surface Card */
+.premium-card {
+    background: #ffffff;
+    border: 1px solid rgba(199, 196, 216, 0.45);
+    box-shadow: 0 10px 30px -12px rgba(21, 28, 39, 0.18), 0 2px 6px -2px rgba(21, 28, 39, 0.06);
+}
+
+/* Answer Review Badges */
+.badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 9999px;
+    border: 1px solid transparent;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+.badge-success {
+    background-color: #dcfce7;
+    border-color: #86efac;
+    color: #166534;
+}
+.badge-error {
+    background-color: #ffdad6;
+    border-color: #f2b8b1;
+    color: #93000a;
+}
+.badge-neutral {
+    background-color: #e7eefe;
+    border-color: #c7c4d8;
+    color: #464555;
+}
+
+/* Flashcard 3D flip faces */
+.backface-hidden {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* Scrollable panels */
+.custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #c7c4d8 transparent;
+}
+
+/* Premium general card transitions */
+.quiz-card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.quiz-card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+}
+.hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+}
+
+/* Document upload styles */
+.upload-gradient {
+    background: radial-gradient(circle at top left, rgba(79, 70, 229, 0.05) 0%, transparent 70%);
+}
+.file-pulse {
+    animation: pulse-border 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes pulse-border {
+    0%, 100% { border-color: rgba(79, 70, 229, 0.3); }
+    50% { border-color: rgba(79, 70, 229, 0.8); }
+}
+.loading-dots:after {
+    content: ' .';
+    animation: dots 1s steps(5, end) infinite;
+}
+@keyframes dots {
+    0%, 20% { content: ' .'; }
+    40% { content: ' ..'; }
+    60% { content: ' ...'; }
+    80%, 100% { content: ''; }
+}
+.shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Utilities */
+.hidden {
+    display: none !important;
+}

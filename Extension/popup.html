@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 360px;
+      margin: 0;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f9f9ff;
+      color: #151c27;
+    }
+    h1 {
+      font-size: 20px;
+      margin-top: 0;
+      color: #3525cd;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .field-group {
+      margin-bottom: 12px;
+    }
+    label {
+      display: block;
+      font-size: 11px;
+      font-weight: bold;
+      color: #777587;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    input, textarea, select {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 8px;
+      border: 1px border #c7c4d8;
+      border-radius: 8px;
+      background-color: #ffffff;
+      color: #151c27;
+      font-size: 13px;
+      outline: none;
+    }
+    input:focus, textarea:focus {
+      border-color: #3525cd;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #3525cd;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 13px;
+      transition: background-color 0.2s;
+    }
+    button:hover {
+      background-color: #4f46e5;
+    }
+    .hidden {
+      display: none;
+    }
+    .card {
+      background: #ffffff;
+      border: 1px solid rgba(199, 196, 216, 0.3);
+      border-radius: 12px;
+      padding: 12px;
+      margin-top: 12px;
+    }
+    .error {
+      color: #ba1a1a;
+      background: #ffdad6;
+      border: 1px solid rgba(186, 26, 26, 0.2);
+      padding: 8px;
+      border-radius: 8px;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+    .success {
+      color: #0f693e;
+      background: #d1e7dd;
+      padding: 8px;
+      border-radius: 8px;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+    .option-btn {
+      display: block;
+      width: 100%;
+      padding: 8px;
+      margin-top: 6px;
+      background: #f0f3ff;
+      border: 1px solid #c7c4d8;
+      border-radius: 6px;
+      text-align: left;
+      cursor: pointer;
+      color: #151c27;
+      font-size: 13px;
+    }
+    .option-btn:hover {
+      background: #e2e8f8;
+    }
+    .correct {
+      background-color: #d1e7dd !important;
+      border-color: #0f693e !important;
+      color: #0f693e !important;
+    }
+    .wrong {
+      background-color: #f8d7da !important;
+      border-color: #842029 !important;
+      color: #842029 !important;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧠 QuizGen AI</h1>
+  
+  <div id="error-box" class="error hidden"></div>
+  <div id="success-box" class="success hidden"></div>
+
+  <!-- Screen 1: Generator Setup -->
+  <div id="setup-screen">
+    <div class="field-group">
+      <label for="api-base">API Base URL</label>
+      <input type="text" id="api-base" value="http://localhost:5000">
+    </div>
+    <div class="field-group">
+      <label for="highlighted-text">Source Material</label>
+      <textarea id="highlighted-text" rows="5" placeholder="Select text on webpage and click generate, or paste here..."></textarea>
+    </div>
+    <div class="field-group">
+      <div style="display: flex; gap: 8px;">
+        <div style="flex: 1;">
+          <label for="q-count">Count</label>
+          <input type="number" id="q-count" value="5" min="1" max="10">
+        </div>
+        <div style="flex: 1;">
+          <label for="q-type">Type</label>
+          <select id="q-type">
+            <option value="multiple-choice">MCQ</option>
+            <option value="true-false">True/False</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <button id="btn-generate">Generate Quiz</button>
+  </div>
+
+  <!-- Screen 2: Playing Quiz -->
+  <div id="play-screen" class="hidden">
+    <h3 id="progress-text" style="font-size: 14px; margin-top: 0;">Question 1 of 5</h3>
+    <p id="prompt-text" style="font-size: 14px; font-weight: bold; margin-bottom: 12px;"></p>
+    <div id="options-container"></div>
+    <div style="margin-top: 16px; display: flex; gap: 8px;">
+      <button id="btn-restart" style="background-color: #777587; flex: 1;">Restart</button>
+      <button id="btn-next" style="flex: 1;" class="hidden">Next</button>
+    </div>
+  </div>
+
+  <!-- Screen 3: Results -->
+  <div id="results-screen" class="hidden">
+    <h3 style="font-size: 16px; margin-top: 0; color: #00687a;">Quiz Finished!</h3>
+    <p id="score-text" style="font-size: 18px; font-weight: bold; margin-bottom: 16px;"></p>
+    <button id="btn-reset-setup">Generate Another</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

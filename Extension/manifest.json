@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "QuizGen Extension",
+  "version": "1.0",
+  "description": "Generate quizzes from highlighted webpage text instantly.",
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "activeTab"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

@@ -1,0 +1,9 @@
+- [x] Add target language support (Backend Quiz model + aiQuizGenerator + Frontend dropdown UI)
+- [x] Create Browser Extension source files (manifest.json, popup.html/js, background.js)
+- [x] Add Google Classroom CourseWork assignment export endpoint
+- [x] Implement Voice Mode on the Play Screen (Web Speech TTS + SpeechRecognition matching)
+- [/] Add PWA support (manifest.json + Service Worker sw.js + offline/online result sync)
+- [ ] Build Spaced-Repetition cron email reminders (node-cron job + Result opt-in logic)
+- [ ] Add GDPR data controls (DELETE /user/:name/data, GET /user/:name/data-export, anon data retention + PRIVACY.md)
+- [ ] Build protected Admin dashboard route and EJS/HTML panel view
+- [ ] Add Starter templates library (GET endpoint + Frontend starter pack selection drawer)
